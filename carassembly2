@@ -1,13 +1,7 @@
 pipeline {
    agent any
-   environment {
-        cc = 'clang'
-   }
-   stages {
+    stages {
       stage('Build') {
-      environment {
-         AN_ACCESS_KEY = credentials('my-predefined-secret-text')
-      }
          steps {
             sh 'rm -rf build' 
             sh 'mkdir build' // create a new folder
