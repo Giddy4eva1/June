@@ -5,6 +5,9 @@ pipeline {
     }
     stages {
       stage('Build') {
+      environment {
+		OUTPUT_PATH = './outputs/'
+	}
          steps {
             sh 'rm -rf build' 
             sh 'mkdir build' // create a new folder
