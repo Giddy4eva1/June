@@ -1,2 +1,4 @@
 this link is for examples of multiple steps, read:
 https://coralogix.com/log-analytics-blog/easily-build-jenkins-pipelines-tutorial-with-parameters/
+
+also note that carassembly2 =  we added environment for the first time. check the pipeline level environment and stage level one.
