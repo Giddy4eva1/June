@@ -2,3 +2,17 @@ this link is for examples of multiple steps, read:
 https://coralogix.com/log-analytics-blog/easily-build-jenkins-pipelines-tutorial-with-parameters/
 
 also note that carassembly2 =  we added environment for the first time. check the pipeline level environment and stage level one.
+Louise, 
+when the agent, instead of any or none etc, it is Docker, what  does it mean?, eg
+pipeline {
+    agent { docker { image 'maven:3.3.3' } }
+    stages {
+        stage('build') {
+            steps {
+               bat label: '', script: 'mvn --version'
+            }
+        }
+    }
+}
+
+what does this mean? Please advise
