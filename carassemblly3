@@ -1,28 +1,9 @@
 pipeline {
    agent any
-   options {
-      retry(3)
-   }
    environment {                                          
         CC = 'clang'
     }
     stages {
-    stage('Run Tests') {
-parallel {
-stage('Test On Windows') {
-agent { label "windows" }
-steps {
-bat "run-tests.bat"
-}
-}
-stage('Test On Linux') {
-agent { label "linux" }
-steps {
-sh "run-tests.sh"
-}
-}
-}
-}
       stage('Build') {
       environment {
 		OUTPUT_PATH = './outputs/'
