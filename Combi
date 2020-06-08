@@ -30,12 +30,7 @@ node {
 	            sh "echo 'shell scripts to run integration tests...'"
 	        }
         }
-	post { 
-        always { 
-            echo 'I will always say Hello again!'
-        }
-    }
-      	stage ('Deploy') {
+   	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
     } catch (err) {
