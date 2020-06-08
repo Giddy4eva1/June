@@ -1,16 +1,12 @@
 pipeline {
     agent any
-    options {
-    timeout(time: 6, unit: 'HOURS')
-    }
-    stages { 
+    stages {
         stage('Example') {
             steps {
                 echo 'Hello World'
             }
         }
     }
-}
 node {
  	// Clean workspace before doing anything
     deleteDir()
@@ -19,11 +15,8 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage ('Build') {
+        stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
-        }
-	stage ('Analyse') {
-        	sh "echo 'analyse the shell scripts'"
         }
         stage ('Tests') {
 	        parallel 'static': {
@@ -36,7 +29,7 @@ node {
 	            sh "echo 'shell scripts to run integration tests...'"
 	        }
         }
-   	stage ('Deploy') {
+      	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
     } catch (err) {
