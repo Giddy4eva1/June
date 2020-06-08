@@ -9,12 +9,6 @@ node {
         stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
         }
-	stage ('somethingelse') {
-		sh "i am trying to build massive app"
-	}
-	stage (('analysecodes') {
-		sh "ensure that you remember the indentations"
-	} 
         stage ('Tests') {
 	        parallel 'static': {
 	            sh "echo 'shell scripts to run static tests...'"
@@ -34,3 +28,4 @@ node {
         throw err
     }
 }
+© 2020 GitHub, Inc.
