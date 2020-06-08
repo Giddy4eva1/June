@@ -16,6 +16,13 @@ node {
         stage ('Clone') {
         	checkout scm
         }
+	stage ('examine build') {
+	   steps {
+		sh 'echo "all  users must clean their hands"'
+		sh 'echo "review stakeholder requirements"'
+		sh 'echo "treat access keys as global!'
+	}
+	}
         stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
         }
