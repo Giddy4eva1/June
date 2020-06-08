@@ -25,15 +25,6 @@ pipeline {
             sh 'grep "body" build/car.txt'
          }
       }
-      stage('Run More Tests') {
-      parallel {
-      stage('Test On Windows') {
-           steps {
-      bat "run-tests.bat"
-     }
-     }
-      }
-}
       stage('Publish') {
           steps {
             archiveArtifacts artifacts: 'build/'
