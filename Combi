@@ -1,12 +1,3 @@
-pipeline {
-    agent any
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-    }
 node {
  	// Clean workspace before doing anything
     deleteDir()
