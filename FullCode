@@ -1,0 +1,34 @@
+pipeline {
+    agent any 
+    stages {
+       stage ('Verify') {
+          steps {
+         slackEnd "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMER} {<${env.BUILD_URL}|Links}"
+         sh 'docker version'
+       }
+     }
+        stage('build') {
+         steps{
+            sh 'chmod =x ./ci/01-build.sh && ./ci/01-build.sh'
+       }
+      }
+        stage('Smoke Test') {
+           steps{
+              sh 'chmod =x ./ci/02-smoke-test.sh && ./ci/01-smoke-test.sh'
+          }
+        }
+        stage('Unit Test') {
+           steps{
+              sh 'chmod =x ./ci/01-unit-test.sh && ./ci/01-unit-test.sh'
+          }
+        }
+        stage('Push') {
+           steps{
+              withCredentials{usernamePasswrd(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_HUB_USER', passwordVariable: 'DOCKER_HUB_PASSWORD'
+              sh 'chmod =x ./ci/04-push.sh && ./ci/04-push.sh'
+              slackEnd "Build Completed - ${env.JOB_NAME} ${env.BUILD_NUMER} {<${env.BUILD_URL}|Links}"
+           }
+        }
+    }
+ } 
+}
