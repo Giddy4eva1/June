@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    environment {                                            1. 
+        CC = 'clang'
+    }
+    stages {
+        stage('Example') {
+            environment {                                     2.
+                AN_ACCESS_KEY = credentials('my-prefined-secret-text')   3.
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
+    }
+}
