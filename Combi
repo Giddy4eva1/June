@@ -19,14 +19,6 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage ('prebuild') {
-	     steps {
-	     sh "echo 'consult stakeholders...'"
-	     sh "echo 'review requirements etc ...'"
-	     sh "echo 'review code early ...'"
-	     }
-	
-	}
 	stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
         }
