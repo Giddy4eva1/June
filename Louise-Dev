@@ -28,7 +28,7 @@ pipeline {
           }
 	stage('Test') {
 	    steps {
-		echo "Testing release $ ${RELEASE}.."
+		echo "Testing release ${RELEASE}.."
 		}
 	    }
 	stage('Deploy') {
