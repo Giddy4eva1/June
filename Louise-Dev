@@ -49,4 +49,4 @@ pipeline {
 		echo 'Prints weather deploy happened or not, success or failure'
              }
           }
-} 
+ } 
