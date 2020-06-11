@@ -1,35 +1,28 @@
-node {
- 	// Clean workspace before doing anything
-    deleteDir()
-
-    try {
-        stage ('Clone') {
-        	checkout scm
-        }
-        stage ('Build') {
-		environment {
-		LOG_LEVEL='INFO'
-}
-        	sh "echo 'shell scripts to build project...'"
-        }
-        stage ('Tests') {
-	        parallel 'static': {
-	            sh "echo 'shell scripts to run static tests...'"
-	        },
-	        'unit': {
-	            sh "echo 'shell scripts to run unit tests...'"
-	        },
-	        'integration': {
-	            sh "echo 'shell scripts to run integration tests...'"
-	        }
-        }
-      	stage ('Deploy') {
-				
-}
-            sh "echo 'shell scripts to deploy to server...'"
-      	}
-    } catch (err) {
-        currentBuild.result = 'FAILED'
-        throw err
+pipeline {
+    agent any
+    environment {
+        RELEASE='20.04'
     }
-}
+    stages {
+        stage('Build') {
+            environment {
+                LOG_LEVEL='INFO'
+            }
+            parallel {
+                stage('linux-arm64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+                stage('linux-amd64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+                stage('windows-amd64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+            }
+        }
