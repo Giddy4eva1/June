@@ -4,53 +4,42 @@ pipeline {
         RELEASE='20.04'
     }
     stages {
- 	        stage('Build') {
+        stage('Build') {
             environment {
                 LOG_LEVEL='INFO'
             }
             parallel {
-stage('linux-arm64') {
+                stage('linux-arm64') {
                     steps {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
                 }
-stage('linux-amd64') {
+                stage('linux-amd64') {
                     steps {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
                 }
-stage('windows-amd64') {
+                stage('windows-amd64') {
                     steps {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
-		   } 
+		    steps {	  
+			sh 'echo "A one line step"'
+ 			sh ''' 
+			echo "A multiline step"'
+			cd /tests/results
+			ls -lrt
+			'''
+		    }
+                }
             }
         }
-	     			stage('Test') {
+        stage('Test') {
             steps {
                 echo "Testing release ${RELEASE}..."
             }
         }
-	stage('Review_Test') {
-            steps {
-                echo "Testing release ${RELEASE}..."
-            }
-        }
-	stage('Pre-Deploy') {
-            steps {
-                echo "Testing release ${RELEASE}..."
-            }
-        }
-	stage('Analyse Pre-Deploy') {
-            steps {
-                echo "Testing release ${RELEASE}..."
-		sh 'echo "A one line step"'
-		sh '''
-		echo '"A multiline step for gradual build-up"'
-		echo '"list all test results"'
-            }
-        }
-            stage('Deploy') {
+        stage('Deploy') {
             input {
                 message 'Deploy?'
                 ok 'Do it!'
