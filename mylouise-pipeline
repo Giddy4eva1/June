@@ -10,12 +10,12 @@ pipeline {
 
 	stages{
 		
-	stage(BUILD FOR ME) {
+	stage('BUILD') {
 		environment {
 
 		   LOG_LEVEL='SOMETHING TO TRY'
 }
-	stage('Test) {
+	stage('Test') {
 	input {
 	message 'continue?'
 	ok 'continue!'
