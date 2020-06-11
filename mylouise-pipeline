@@ -1,0 +1,41 @@
+pipeline {
+
+	agent any
+	
+	environment {
+
+		Prod
+		
+	}
+
+	stages{
+		
+	stage(BUILD FOR ME) {
+		environment {
+
+		   LOG_LEVEL='SOMETHING TO TRY'
+}
+	stage('Test) {
+	input {
+	message 'continue?'
+	ok 'continue!'
+	echo "testing the parameters"
+	
+}
+
+	stage('Deploy') {
+
+	input {
+	message 'Deploy?'
+	ok 'do it!'
+
+
+}
+
+}
+
+}
+	
+
+
+}
