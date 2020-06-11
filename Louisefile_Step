@@ -32,6 +32,26 @@ pipeline {
                 echo "Testing release ${RELEASE}..."
             }
         }
+	 stage('Review Build') {
+            environment {
+                LOG_LEVEL='INFO'
+            }
+            parallel {
+                stage('linux-arm64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+                stage('linux-amd64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+               stage('apache-bamboo-arm64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
         stage('Deploy') {
             input {
                 message 'Deploy?'
