@@ -7,9 +7,14 @@ pipeline {
 		echo 'first build'
             }
         }
-	stage('Test') {
+	stage('Pretest') {
 	    steps {
 	    echo "test this one now"
+}
+	    steps {
+	    echo 'begin  something'
+	    echo 'see stakeholders'
+
 }
 }     
     }
