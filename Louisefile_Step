@@ -23,15 +23,8 @@ pipeline {
                     steps {
                         echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                     }
-		           steps {	  
-			              sh 'echo "A one line step"'
- 			              sh ''' 
-			              echo "A multiline step"'
-			              cd /tests/results
-			              ls -lrt
-		              	'''
-		    }
-                }
+		           
+			   }
             }
         }
         stage('Test') {
