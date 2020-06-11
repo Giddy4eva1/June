@@ -13,16 +13,6 @@ node {
 }        	
                 sh "echo 'shell scripts to build project...'"
         }
-	parallel {
-		stage('linux-arm64')
-		  steps {
-			echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}.."
-}
-
-		stage('windows-amd64') {
-		  steps echo "Extending the build relears ${RELEASE} for ${STAGE_NAME} with log level ${LOG-LEVEL}.."
-}
-
 }
 	stage ('Pretest') {
         	sh "echo 'pretest scripts to ensure build is perfect.....'"
