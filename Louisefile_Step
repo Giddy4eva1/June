@@ -41,6 +41,15 @@ stage('windows-amd64') {
                 echo "Testing release ${RELEASE}..."
             }
         }
+	stage('Analyse Pre-Deploy') {
+            steps {
+                echo "Testing release ${RELEASE}..."
+		sh 'echo "A one line step"'
+		sh '''
+		echo '"A multiline step for gradual build-up"'
+		echo '"list all test results"'
+            }
+        }
             stage('Deploy') {
             input {
                 message 'Deploy?'
