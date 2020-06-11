@@ -1,10 +1,8 @@
 pipeline {
-
 	agent any
-	
 	environment {
 
-		Prod
+		RELEASE='2.04'
 		
 	}
 
@@ -12,8 +10,7 @@ pipeline {
 		
 	stage('BUILD') {
 		environment {
-
-		   LOG_LEVEL='SOMETHING TO TRY'
+		   LOG_LEVEL='INFO'
 }
 	stage('Test') {
 	input {
@@ -24,18 +21,22 @@ pipeline {
 }
 
 	stage('Deploy') {
-
 	input {
 	message 'Deploy?'
 	ok 'do it!'
-
-
 }
 
 }
 
 }
 	
+
+
+}
+
+
+}
+
 
 
 }
