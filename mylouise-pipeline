@@ -11,11 +11,6 @@ pipeline {
 	    steps {
 	    echo "test this one now"
 }
-	    steps {
-	    echo 'begin  something'
-	    echo 'see stakeholders'
-
-}
-}     
+	 }     
     }
 }
