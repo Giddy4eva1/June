@@ -13,6 +13,7 @@ pipeline {
       OUTPUT_PATH = './outputs/'
       }
          steps {
+            sh 'rm -rf giddyfile'
             sh 'mkdir giddyfile' // create a new folder
             sh 'touch giddyfile/car.txt' // create an empty file
             sh 'echo "chassis" >> giddyfile/car.txt' // put chassis inside the file
