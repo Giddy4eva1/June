@@ -34,6 +34,7 @@ pipeline {
       stage('Deploy') {
            steps {
            echo 'hello world'
+           echo 'this is a deployment before the archiving process'
            }   
       }
       
