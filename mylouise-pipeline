@@ -9,9 +9,12 @@ pipeline {
 stage('Test') {
 	    steps {
 	
-		echo 'Hellos monde'
+		echo 'Hello monde'
 }
 }
+    }
+    stage('deploy') {
+          sh "echo 'shell scripts to deploy to server...'"
     }
 }
 		
