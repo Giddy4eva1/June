@@ -29,10 +29,11 @@ pipeline {
             sh 'grep "body" giddyfile/car.txt'
          }
       }
-      stage('Deploy')
+      stage('Deploy') {
            steps {
            echo 'hello world'
            }   
+      }
       stage('Publish') {
           steps {
             archiveArtifacts artifacts: 'giddyfile/'
