@@ -11,5 +11,8 @@ pipeline {
             echo 'Get things ready'  
             }
         }
+        stage ('Deploy') {
+            sh "echo 'shell scripts to deploy to server...'"
+      	}
     }
 }
