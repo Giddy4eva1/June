@@ -1,8 +1,17 @@
 pipeline {
    agent any
+   options {
+   retry(5)
+   }
+   environment {
+   prod = 'hanover'
+   }
 
    stages {
       stage('Build') {
+      environment {
+      OUTPUT_PATH = './outputs/'
+      }
          steps {
             sh 'rm -rf build' 
             sh 'mkdir build' // create a new folder
