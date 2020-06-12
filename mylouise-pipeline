@@ -13,8 +13,17 @@ pipeline {
             }
         }
 	stage('Build') {
-	   environment {}
+	   environment {
+	   LOG_LEVEL='INFO'
+	   }
 	   parallel {
+	   stage('linux-arm64') {
+	       steps {
+	        echo "Building release..."
+	       }
+	   }
+	   stage('windows-amd64') {
+	   	   }
 
 }
 	
