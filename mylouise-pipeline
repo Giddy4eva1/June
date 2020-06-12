@@ -1,29 +1,21 @@
+
 pipeline {
-    agent any
+    agent any 
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
-                echo "Build the application package"
-                buildApp()
+                sh 'make first build here'
             }
         }
-        stage('Install') {
+        stage('Test') { 
             steps {
-                echo "Install package to device"
-                installApp()
+                sh 'test all corners'
             }
         }
-        stage('Test') {
+        stage('Deploy') { 
             steps {
-                echo "Execute automated tests"
-                testApp()
+                sh 'ensure a good deployment'
             }
-        }
-    }
-    post { 
-        success { 
-            echo "Deploy the package if tests are passed"
-            deployApp()
         }
     }
 }
