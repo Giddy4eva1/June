@@ -29,6 +29,15 @@ pipeline {
             sh 'grep "body" giddyfile/car.txt'
          }
       }
+      stage('Deploy') {
+      environment {
+      OUTPUT_PATH = './outputs/'
+      }
+      {
+      sh 'this is a deployment phase'
+      sh 'just trying to expand'
+         }   
+      }
       stage('Publish') {
           steps {
             archiveArtifacts artifacts: 'giddyfile/'
