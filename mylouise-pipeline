@@ -1,16 +1,18 @@
 pipeline {
     agent any
     stages { 
-        stage('Build') {
+        stage('Prebuild') {
             steps {
-                echo 'Hello World'
-		echo 'first build'
+                echo 'check details first'
             }
         }
-	stage('Pretest') {
-	    steps {
-	    echo "test this one now"
-}
-	 }     
+	stage('Build') {
+	sh  "echo 'shell scripts to build project'"
     }
+	stage('Test') {
+            steps {
+                echo "Testing release ${RELEASE}..."
+            }
+        }
+
 }
