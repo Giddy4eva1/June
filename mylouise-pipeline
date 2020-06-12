@@ -6,6 +6,9 @@ pipeline {
                 echo 'Hello World'
             }
         }
+	stage ('Build') {
+        	sh "echo 'shell scripts to build project...'"
+        }
     }
 }
 	
