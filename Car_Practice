@@ -16,9 +16,9 @@ pipeline {
             sh 'rm -rf giddyfile'
             sh 'mkdir giddyfile' // create a new folder
             sh 'touch giddyfile/car.txt' // create an empty file
-            sh 'echo "chassis" >> giddyfile/car.txt' // put chassis inside the file
-            sh 'echo "engine" >> giddyfile/car.txt' // put engine inside the file
-            sh 'echo "body" >> giddyfile/car.txt' // put body inside the file
+            sh 'echo "chassis" >> giddyfile/car.txt' // put header inside the file
+            sh 'echo "engine" >> giddyfile/car.txt' // put footer inside the file
+            sh 'echo "body" >> giddyfile/car.txt' // put category pages inside the file
          }
       }
       
