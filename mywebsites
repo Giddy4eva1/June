@@ -16,3 +16,29 @@ pipeline {
 }
 
 what does this mean? Please advise
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+I need to study this below bit seriously as the details present food for thought
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+pipeline {
+  agent { label 'worker_node1' }
+  stages {
+    stage('Source') { // Get code
+      steps {
+        // get code from our Git repository
+        git 'https://github.com/brentlaster/roarv2'
+      }
+    }
+    stage('Compile') { // Compile and do unit testing
+      tools {
+        gradle 'gradle4'
+      }
+      steps {
+        // run Gradle to execute compile and unit testing
+        sh 'gradle clean compileJava test'
+      }
+    }
+  }
+}
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
