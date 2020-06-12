@@ -1,18 +1,19 @@
 pipeline {
-    agent any
-    stages { 
-        stage('Clone') {
+    agent none                              
+    stages {
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' } 
             steps {
-                echo 'Hello World'
+                echo 'Hello, Maven'
+                sh 'mvn --version'
             }
         }
-        stage('Prebuild') {
+        stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
             steps {
-            echo 'Get things ready'  
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
         }
-        stage ('Deploy') {
-            sh "echo 'shell scripts to deploy to server...'"
-      	}
     }
 }
