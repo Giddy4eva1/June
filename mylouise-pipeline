@@ -1,32 +1,52 @@
-
 pipeline {
     agent any
-    stages { 
-        stage('Clone') {
-            steps {
-                echo 'Hello World'
+    environment {
+        RELEASE='20.04'
+    }
+    stages {
+        stage('Build') {
+            environment {
+                LOG_LEVEL='INFO'
+            }
+            parallel {
+                stage('linux-arm64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+                stage('linux-amd64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
+                stage('windows-amd64') {
+                    steps {
+                        echo "Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                    }
+                }
             }
         }
-        stage('Prebuild') {
+        stage('Test') {
             steps {
-            echo 'Get things ready'  
+                echo "Testing release ${RELEASE}..."
             }
         }
-	stage('Build') {
-	   environment {
-	   LOG_LEVEL='INFO'
-	   }
-	   parallel {
-	   stage('linux-arm64') {
-	       steps {
-	        echo "Building release..."
-	       }
-	   }
-	   stage('windows-amd64') {
-	   	   }
-
-}
-	
-}
+        stage('Deploy') {
+            input {
+                message 'Deploy?'
+                ok 'Do it!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                }
+            }
+            steps {
+                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            }
+        }        
+    }
+    post{
+        always {
+             echo 'Prints whether deploy happened or not, success or failure'
+        }
     }
 }
