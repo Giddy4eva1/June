@@ -11,10 +11,8 @@ stage('Test') {
 	
 		echo 'Hello monde'
 }
-   }
-   stage('Deploy') {
-          sh "echo 'shell scripts to deploy to server...'"
-    }
+}
+   
 }
 		
 	
