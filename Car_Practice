@@ -21,6 +21,7 @@ pipeline {
             sh 'echo "body" >> giddyfile/car.txt' // put body inside the file
          }
       }
+      
       stage('Test') {
          steps {
             sh 'test -f giddyfile/car.txt'
@@ -29,11 +30,13 @@ pipeline {
             sh 'grep "body" giddyfile/car.txt'
          }
       }
+      
       stage('Deploy') {
            steps {
            echo 'hello world'
            }   
       }
+      
       stage('Publish') {
           steps {
             archiveArtifacts artifacts: 'giddyfile/'
