@@ -13,8 +13,7 @@ pipeline {
       OUTPUT_PATH = './outputs/'
       }
          steps {
-            sh 'rm -rf build' 
-            sh 'mkdir build' // create a new folder
+            sh 'mkdir giddyfile' // create a new folder
             sh 'touch build/car.txt' // create an empty file
             sh 'echo "chassis" >> build/car.txt' // put chassis inside the file
             sh 'echo "engine" >> build/car.txt' // put engine inside the file
