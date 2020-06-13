@@ -13,6 +13,23 @@ pipeline {
          }
       }
       stage('Test') {
+      parallel {
+		stage('Unit Test') {
+		steps {
+			echo 'running the unit test...'
+		}
+		steps('Integration Test') {
+		agent {
+		docker {
+			image 'ubuntu'
+			}
+		steps {
+			echo 'running the integration'
+			}	
+		}
+	}			
+}
+	}
             steps {
             input ('do you want to proceed?')
 	    sh 'test -f build/car.txt'
