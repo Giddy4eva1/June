@@ -11,10 +11,6 @@ pipeline {
       steps {
         echo 'trying'
       }
-      steps {
-        // run Gradle to execute compile and unit testing
-        echo 'gradle clean compileJava test'
-      }
-    }
+     }
   }
 }
