@@ -21,6 +21,11 @@ pipeline {
             sh 'grep "body" build/car.txt'
          }
       }
+      stage('Deploy') {
+	  steps {
+		sh  'deploy on all servers'
+	}
+      }
       stage('Publish') {
           steps {
             input ('do you want to proceed?')
