@@ -13,14 +13,6 @@ pipeline {
          }
       }
       stage('Test') {
-      parallel {
-		stage('Unit Test') {
-		steps {
-			echo 'running the unit test...'
-		}
-			}			
-}
-	}
             steps {
             input ('do you want to proceed?')
 	    sh 'test -f build/car.txt'
