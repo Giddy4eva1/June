@@ -23,7 +23,9 @@ pipeline {
       }
       stage('Deploy') {
 		steps {
-		sh  'deploy on all servers'
+		sh 'grep "chassis" build/car.txt'
+                sh 'grep "engine" build/car.txt'
+                sh 'grep "body" build/car.txt'
 			}
 		}
 
