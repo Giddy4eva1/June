@@ -13,9 +13,9 @@ pipeline {
          }
       }
       stage('Test') {
-      input ('do you want to proceed?')
-         steps {
-            sh 'test -f build/car.txt'
+            steps {
+            input ('do you want to proceed?')
+	    sh 'test -f build/car.txt'
             sh 'grep "chassis" build/car.txt'
             sh 'grep "engine" build/car.txt'
             sh 'grep "body" build/car.txt'
