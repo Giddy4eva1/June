@@ -1,20 +1,29 @@
 pipeline {
+
   agent any
+
   stages {
-    stage('Source') { // Get code
+
+    stage('Source') {
+
       steps {
-        echo 'a short message'
+
+        echo "a short message"
+
         }
+
     }
-    
-    stage('Compile') { // Compile and do unit testing
+
+    stage('Compile') {
+
       steps {
-        echo 'trying'
+
+        echo "trying"
+
       }
-      steps {
-        // run Gradle to execute compile and unit testing
-        echo 'gradle clean compileJava test'
-      }
+
     }
+
   }
+
 }
