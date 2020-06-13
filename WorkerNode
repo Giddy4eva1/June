@@ -6,6 +6,7 @@ pipeline {
         echo 'a short message'
         }
     }
+    
     stage('Compile') { // Compile and do unit testing
       steps {
         echo 'trying'
