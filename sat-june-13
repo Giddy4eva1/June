@@ -23,7 +23,8 @@ pipeline {
       }
       stage('Publish') {
           steps {
-            archiveArtifacts artifacts: 'build/'
+            input ('do you want to proceed?')
+	    archiveArtifacts artifacts: 'build/'
           }
       }      
    }
