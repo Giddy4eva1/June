@@ -1,10 +1,12 @@
 pipeline {
-   agent none
-  stages ('build')
-  agent {
-  docker {
-  image 'ubuntu'
-  }
-  }
-  
-  }
+	agent any
+	stages {
+		stage ('Build') {
+		echo "build first trial"	
+		}
+		stage ('Test') {
+		echo "test the code"
+		}
+	}
+
+}
