@@ -4,8 +4,7 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-	 input ('do you want to proceed?')
-            sh 'rm -rf build' 
+	    sh 'rm -rf build' 
             sh 'mkdir build' // create a new folder
             sh 'touch build/car.txt' // create an empty file
             sh 'echo "chassis" >> build/car.txt' // put chassis inside the file
@@ -14,6 +13,7 @@ pipeline {
          }
       }
       stage('Test') {
+      input ('do you want to proceed?')
          steps {
             sh 'test -f build/car.txt'
             sh 'grep "chassis" build/car.txt'
