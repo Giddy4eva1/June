@@ -7,8 +7,8 @@ pipeline {
         }
     }
     stage('Compile') { // Compile and do unit testing
-      tools {
-        echo 'gradle 'gradle4'
+      steps {
+        echo 'trying'
       }
       steps {
         // run Gradle to execute compile and unit testing
