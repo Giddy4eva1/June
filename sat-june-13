@@ -2,10 +2,15 @@ pipeline {
 	agent any
 	stages {
 		stage ('Build') {
+		steps {
+		echo "build  the code"
+		}
 		echo "build first trial"	
 		}
 		stage ('Test') {
+		steps {
 		echo "test the code"
+		}
 		}
 	}
 
