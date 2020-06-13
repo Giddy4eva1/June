@@ -18,16 +18,7 @@ pipeline {
 		steps {
 			echo 'running the unit test...'
 		}
-		steps('Integration Test') {
-		agent {
-		docker {
-			image 'ubuntu'
-			}
-		steps {
-			echo 'running the integration'
-			}	
-		}
-	}			
+			}			
 }
 	}
             steps {
