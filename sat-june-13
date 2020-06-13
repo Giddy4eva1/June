@@ -12,7 +12,11 @@ pipeline {
             sh 'echo "body" >> build/car.txt' // put body inside the file
          }
       }
-      stage('Test') {
+      stage('Pretest') {
+         steps {
+            sh 'test -f build/car.txt'
+            sh 'grep "chassis" build/car.txt'
+        stage('Test') {
             steps {
             input ('do you want to proceed?')
 	    sh 'test -f build/car.txt'
