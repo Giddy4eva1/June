@@ -12,6 +12,12 @@ pipeline {
      		echo 'test integration'
     		}
 		}
+		stage ('explain') {
+		steps {
+		echo 'explain things to the stakeholders'
+		echo 'do necessary adjustments'
+		}
+		}
 		stage ('test: integration-&-quality') {
   		steps {
         	echo 'test integration'
