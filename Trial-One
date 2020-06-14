@@ -12,7 +12,7 @@ pipeline {
       echo 'test integration'
     }
 		}
-		stage('pretest for quality') {
+		stage('pretest') {
 		sh 'mkdir trial' // create a new folder
 		sh 'touch trial/first.txt' // create an empty file
 		sh 'echo "colour" >> trial/first.txt' // put colour inside the file
