@@ -8,22 +8,21 @@ pipeline {
 		environment {
 		OUTPUT_PATH = './outputs/'
 		}
-    steps {
-      echo 'test integration'
-    }
+    		steps {
+     		echo 'test integration'
+    		}
 		}
-				stage ('test: integration-&-quality') {
-      steps {
-        echo 'test integration'
-            }
-
+		stage ('test: integration-&-quality') {
+      		steps {
+        	echo 'test integration'
+            	}
 		}
 		stage ('test: functional') {
-    steps {
-      echo 'test functional'
-    }
-		}
-		stage ('test: load-&-security') {
+    		steps {
+      		echo 'test functional'
+    		}
+	}
+	stage ('test: load-&-security') {
     steps {
       echo 'test load'
     }
