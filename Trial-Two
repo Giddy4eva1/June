@@ -12,11 +12,6 @@ pipeline {
             }
 
 		}
-		stage ('test: functional') {
-    steps {
-      echo 'test functional'
-    }
-		}
 		stage ('test: load-&-security') {
     steps {
       echo 'test load'
