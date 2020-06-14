@@ -4,36 +4,35 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-	    sh 'rm -rf build' 
-            sh 'mkdir build' // create a new folder
-            sh 'touch build/car.txt' // create an empty file
-            sh 'echo "chassis" >> build/car.txt' // put chassis inside the file
-            sh 'echo "engine" >> build/car.txt' // put engine inside the file
-            sh 'echo "body" >> build/car.txt' // put body inside the file
+	    sh 'mkdir tesco' // create a new folder
+            sh 'touch tesco/web.txt' // create an empty file
+            sh 'echo "header" >> tesco/web.txt' // put header inside the file
+            sh 'echo "footer" >> tesco/web.txt' // put footer inside the file
+            sh 'echo "catpages" >> tesco/web.txt' // put catpages inside the file
          }
       }
       stage('Test') {
             steps {
             input ('do you want to proceed?')
-	    sh 'test -f build/car.txt'
-            sh 'grep "chassis" build/car.txt'
-            sh 'grep "engine" build/car.txt'
-            sh 'grep "body" build/car.txt'
+	    sh 'test -f tesco/web.txt'
+            sh 'grep "header" tesco/web.txt'
+            sh 'grep "footer" tesco/web.txt'
+            sh 'grep "catpages" tesco/web.txt'
          }
       }
       stage('Deploy') {
 		steps {
-		sh 'grep "chassis" build/car.txt'
-                sh 'grep "engine" build/car.txt'
-                sh 'grep "body" build/car.txt'
+		sh 'grep "header" tesco/web.txt'
+                sh 'grep "footer" tesco/web.txt'
+                sh 'grep "catpages" tesco/web.txt'
 			}
 		}
 
       stage('Publish') {
           steps {
             input ('do you want to proceed?')
-	    archiveArtifacts artifacts: 'build/'
-          }
+	    archiveArtifacts artifacts: 'tesco/'    
+	    }
       }      
    }
 }
