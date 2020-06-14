@@ -1,7 +1,13 @@
 pipeline {
 	agent any
+	environment {
+	cc = 'various'
+	}
 	stages {
 		stage ('build') {
+		environment {
+		OUTPUT_PATH = './outputs/'
+		}
     steps {
       echo 'test integration'
     }
