@@ -6,17 +6,6 @@ pipeline {
       echo 'test integration'
     }
 		}
-		stage ('test: integration-&-quality') {
-      steps {
-        echo 'test integration'
-            }
-
-		}
-		stage ('test: load-&-security') {
-    steps {
-      echo 'test load'
-    }
-		}
 		stage ('approval') {
     steps {
       echo 'test approval'
