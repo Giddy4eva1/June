@@ -13,6 +13,7 @@ pipeline {
     }
 		}
 		stage('pretest') {
+		steps
 		sh 'mkdir trial' // create a new folder
 		sh 'touch trial/first.txt' // create an empty file
 		sh 'echo "colour" >> trial/first.txt' // put colour inside the file
