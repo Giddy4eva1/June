@@ -38,6 +38,10 @@ pipeline {
     }
 		}
 		stage ('deploy:prod') {
+		input {
+		message 'continue?'
+		ok 'proceed!'
+		}
     steps {
       sh'''
       rm -rf testfile.json
