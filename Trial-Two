@@ -2,10 +2,7 @@ pipeline {
 	agent any
 	stages {
 		stage ('build') {
-    environment {
-        OUTPUT_PATH = './outputs/'
-        }
-    steps ('documentation') {
+       steps ('documentation') {
         echo 'mkdir essex' // create a new folder
         echo 'touch essex/rom.txt' // create an empty file
         echo 'touch " header" >>  essex/rom.txt' // put header inside the file
