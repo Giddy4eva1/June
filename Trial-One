@@ -22,6 +22,11 @@ pipeline {
       		echo 'test functional'
     		}
 	}
+	stage ('other checks') {
+		steps {
+		echo 'any other checks necessary'
+		}
+		}
 	stage ('test: load-&-security') {
     steps {
       echo 'test load'
