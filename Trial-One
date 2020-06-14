@@ -11,19 +11,19 @@ pipeline {
     		steps {
      		echo 'test integration'
     		}
-		}
-		stage ('explain') {
+	}
+	stage ('explain') {
 		steps {
 		echo 'explain things to the stakeholders'
 		echo 'do necessary adjustments'
 		}
-		}
-		stage ('test: integration-&-quality') {
+	}
+	stage ('test: integration-&-quality') {
   		steps {
         	echo 'test integration'
             	}
-		}
-		stage ('test: functional') {
+	}
+	stage ('test: functional') {
     		steps {
       		echo 'test functional'
     		}
@@ -32,27 +32,32 @@ pipeline {
 		steps {
 		echo 'any other checks necessary'
 		}
-		}
+	}
 	stage ('test: load-&-security') {
     steps {
       echo 'test load'
     }
+	}
+	stage ('approval') {
+    		steps {
+      		echo 'test approval'
+    		}
 		}
-		stage ('approval') {
-    steps {
-      echo 'test approval'
-    }
+	stage ('publcation') {
+		steps {
+		echo 'ensure all docs are saved well'
 		}
-		stage ('deploy:prod') {
+	}
+	stage ('deploy:prod') {
 		input {
 		message 'continue?'
 		ok 'proceed!'
 		}
-    steps {
-      sh'''
-      rm -rf testfile.json
-      '''
-      echo 'test deploy'
+    		steps {
+      		sh'''
+      		rm -rf testfile.json
+      		'''
+      		echo 'test deploy'
     }
 		}
 	}
