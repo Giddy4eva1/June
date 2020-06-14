@@ -14,8 +14,8 @@ pipeline {
 		}
 		stage ('test: integration-&-quality') {
 		input {
-		message 'integrate?'
-		ok 'Continue!'
+		message 'proceed?'
+		ok 'Proceed!'
 		}
       		steps {
         	echo 'test integration'
