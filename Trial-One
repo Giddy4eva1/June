@@ -12,6 +12,14 @@ pipeline {
       echo 'test integration'
     }
 		}
+		stage('pretest for quality') {
+		sh 'mkdir trial' // create a new folder
+		sh 'touch trial/first.txt' // create an empty file
+		sh 'echo "colour" >> trial/first.txt' // put colour inside the file
+		sh 'echo "font" >> trial/first.txt' // put font inside the file
+		sh 'echo "pagination" >> trial/first.txt' // put pagination  inside the file
+		sh 'echo "weblink" >> trial/first.txt' // put weblink inside the file
+		}
 		stage ('test: integration-&-quality') {
       steps {
         echo 'test integration'
