@@ -4,35 +4,35 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-	    sh 'rm -rf mycar' 
-            sh 'mkdir mycar' // create a new folder
-            sh 'touch build/web.txt' // create an empty file
-            sh 'echo "header" >> mycar/web.txt' // put header inside the file
-            sh 'echo "footer" >> mycar/web.txt' // put footer inside the file
-            sh 'echo "catpages" >> mycar/web.txt' // put catpages inside the file
+	    sh 'rm -rf build' 
+            sh 'mkdir build' // create a new folder
+            sh 'touch build/car.txt' // create an empty file
+            sh 'echo "chassis" >> build/car.txt' // put chassis inside the file
+            sh 'echo "engine" >> build/car.txt' // put engine inside the file
+            sh 'echo "body" >> build/car.txt' // put body inside the file
          }
       }
       stage('Test') {
             steps {
             input ('do you want to proceed?')
-	    sh 'test -f build/web.txt'
-            sh 'grep "header" mycar/web.txt'
-            sh 'grep "engine" mycar/web.txt'
-            sh 'grep "catpages" mycar/web.txt'
+	    sh 'test -f build/car.txt'
+            sh 'grep "chassis" build/car.txt'
+            sh 'grep "engine" build/car.txt'
+            sh 'grep "body" build/car.txt'
          }
       }
       stage('Deploy') {
 		steps {
-		sh 'grep "header" build/web.txt'
-                sh 'grep "footer" mycar/web.txt'
-                sh 'grep "catpages" mycar/web.txt'
+		sh 'grep "chassis" build/car.txt'
+                sh 'grep "engine" build/car.txt'
+                sh 'grep "body" build/car.txt'
 			}
 		}
 
       stage('Publish') {
           steps {
             input ('do you want to proceed?')
-	    archiveArtifacts artifacts: 'mycar/'
+	    archiveArtifacts artifacts: 'build/'
           }
       }      
    }
