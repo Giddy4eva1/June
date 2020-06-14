@@ -1,30 +1,42 @@
 pipeline {
-	agent any 
-	environment (
-		cc = 'clang'
-	)
-	stages {
-		stage('Build') {
-		environment {
-			OUTPUT_PATH = './outputs/'
+   agent any
+   environment {                                          
+        CC = 'clang'
+    }
+    stages {
+      stage('Build') {
+      environment {
+		OUTPUT_PATH = './outputs/'
 	}
-	steps {
-	sh 'mkdir essex' // create a new folder
-	sh 'touch essex/rom.txt' // create an empty file 
-	sh 'echo "heading" >> essex/rom.txt' // put heading inside the file
-	sh 'echo "footing" >> essex/rom.txt' // put footing inside the file
-	}
-}
-	Stage ('Test') {
-	steps {
-	sh 'test -f essex/rom.txt'
-	sh 'grep "heading" essex/rom.txt'
-	sh 'grep "footing" essex/rom.txt' 
-	}
-	}
-	}
+         steps {
+            sh 'mkdir essex' // create a new folder
+            sh 'touch essex/rom.txt' // create an empty file
+            sh 'echo "heading" essex/rom.txt' // put heading inside the file
+            sh 'echo "footing" >> essex/rom.txt' // put footing inside the file
+            sh 'echo "allpages" >> essex/rom.txt' // put allpages inside the file
+         }
+      }
+      stage('Test') {
+         steps {
+            sh 'test -f essex/rom.txt'
+            sh 'grep "chassis" essex/rom.txt'
+            sh 'grep "engine" essex/rom.txt'
+            sh 'grep "body" essex/rom.txt'
+         }
+      }
+      stage('Publish') {
+          steps {
+            archiveArtifacts artifacts: 'essex/'
+          }
+      }      
+   }
 }
 
-
-}
-	
+stage('Deploy') {
+            input {
+                message 'Deploy?'
+                ok 'Do it!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                }
+            }
