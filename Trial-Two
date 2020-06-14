@@ -2,12 +2,6 @@ pipeline {
 	agent any
 	stages {
 		stage ('build') {
-       steps ('documentation') {
-        echo 'mkdir essex' // create a new folder
-        echo 'touch essex/rom.txt' // create an empty file
-        echo 'touch " header" >>  essex/rom.txt' // put header inside the file
-        echo 'touch "footer" >> essex/rom.txt' // put footer inside the file
-    }
     steps {
       echo 'test integration'
     }
