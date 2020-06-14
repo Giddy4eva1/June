@@ -9,24 +9,25 @@ pipeline {
 		OUTPUT_PATH = './outputs/'
 	}
          steps {
-            sh 'mkdir essex' // create a new folder
-            sh 'touch essex/rom.txt' // create an empty file
-            sh 'echo "heading" essex/rom.txt' // put heading inside the file
-            sh 'echo "footing" >> essex/rom.txt' // put footing inside the file
-            sh 'echo "allpages" >> essex/rom.txt' // put allpages inside the file
+            sh 'rm -rf build' 
+            sh 'mkdir build' // create a new folder
+            sh 'touch build/car.txt' // create an empty file
+            sh 'echo "chassis" >> build/car.txt' // put chassis inside the file
+            sh 'echo "engine" >> build/car.txt' // put engine inside the file
+            sh 'echo "body" >> build/car.txt' // put body inside the file
          }
       }
       stage('Test') {
          steps {
-            sh 'test -f essex/rom.txt'
-            sh 'grep "chassis" essex/rom.txt'
-            sh 'grep "engine" essex/rom.txt'
-            sh 'grep "body" essex/rom.txt'
+            sh 'test -f build/car.txt'
+            sh 'grep "chassis" build/car.txt'
+            sh 'grep "engine" build/car.txt'
+            sh 'grep "body" build/car.txt'
          }
       }
       stage('Publish') {
           steps {
-            archiveArtifacts artifacts: 'essex/'
+            archiveArtifacts artifacts: 'build/'
           }
       }      
    }
