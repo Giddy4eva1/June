@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages { 
+        stage('Build') {
+            steps {
+                echo 'Hello World'
+		echo 'saturday trial'
+            }
+        }
+     stage('Test') {
+	steps {
+	    echo 'In the testing phase'
+	    echo 'passive trial'
+       	}
+      }
+
+    }
+}
