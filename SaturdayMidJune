@@ -16,7 +16,13 @@ pipeline {
        stage('Deploy') {
 	steps {
 	    echo 'In the testing phase'
-	    echo 'passive trial'
+	    echo 'active deployment'
+       	}
+      }
+      stage('Monitor') {
+      	steps {
+	    echo 'In the testing phase'
+	    echo 'intensive monitoring'
        	}
       }
     }
