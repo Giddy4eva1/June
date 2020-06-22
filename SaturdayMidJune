@@ -7,6 +7,9 @@ pipeline {
 		echo 'saturday trial'
             }
         }
+	stage('clone') {
+	  checkout scm
+	}
      stage('Test') {
           environment {
           OUTPUT_PATH = './outputs/'
