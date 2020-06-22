@@ -8,6 +8,9 @@ pipeline {
             }
         }
      stage('Test') {
+          environment {
+          OUTPUT_PATH = './outputs/'
+      }
 	steps {
 	    echo 'In the testing phase'
 	    echo 'passive trial'
