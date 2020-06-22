@@ -6,7 +6,7 @@ pipeline {
 	 echo 'try and put something here first'	
 	     }
 	}
-	tage('compile') {
+	stage('compile') {
 	steps {
 	    echo 'try and compile for for experiments'
 		}
