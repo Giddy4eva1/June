@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages { 
+    	stage('compile') {
+	steps {
+	    echo 'try and compile for for experiments'
+		}
+	}
+    
         stage('Build') {
             steps {
                 echo 'Hello World'
