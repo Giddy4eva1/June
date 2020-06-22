@@ -14,7 +14,9 @@ pipeline {
        	}
       }
       stage('Predeploy') {
-            steps {
+            message 'Predeploy?'
+	    ok 'proceed'
+	    steps {
                 echo "Testing release"
             }
         }
