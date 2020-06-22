@@ -1,7 +1,12 @@
 pipeline {
     agent any
     stages { 
-    	stage('compile') {
+    	stage('source') {
+	steps {
+	 echo 'try and put something here first'	
+	     }
+	}
+	tage('compile') {
 	steps {
 	    echo 'try and compile for for experiments'
 		}
