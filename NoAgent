@@ -1,12 +1,32 @@
 pipeline {
     agent any                            
     stages {
-        stage('Example Build') {
+        stage('Code Compile') {
            steps {
                 echo 'Hello, Maven'
             }
         }
-        stage('Example Test') {
+        stage('Code Build') {
+           steps {
+                echo 'Hello, JDK'
+            }
+        }
+        stage('Code Review') {
+           steps {
+                echo 'Hello, JDK'
+            }
+        }
+        stage('Code Test') {
+           steps {
+                echo 'Hello, JDK'
+            }
+        }
+        stage('Staging Area') {
+           steps {
+                echo 'Hello, JDK'
+            }
+        }
+        stage('Code Deploy') {
            steps {
                 echo 'Hello, JDK'
             }
