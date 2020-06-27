@@ -7,8 +7,9 @@ pipeline {
             }
         }
         stage('Clone') {
-        sh "echo 'cloning means copying or downloading an image of the original into another space'"
-        sh "echo 'it also means you probably want to work on it. innit?'"
+        steps 
+        {sh "echo 'cloning means copying or downloading an image of the original into another space'"
+        sh "echo 'it also means you probably want to work on it. innit?'"}
         }
     }
 }
