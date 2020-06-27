@@ -6,7 +6,7 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('prebuild') {
+        stage('Clone') {
         steps {sh "echo 'analyse the code'"
         sh "echo 'seek stakeholder approval'"
         }
