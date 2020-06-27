@@ -1,5 +1,8 @@
 pipeline {
     agent any                            
+    environment {
+       OUPUT-PATH = './outputs/'
+        }
     stages {
         stage('Code Compile') {
            steps {
@@ -15,6 +18,16 @@ pipeline {
            steps {
                 echo 'Hello, JDK'
             }
+        }
+        stage('Code Analysis') {
+          steps {
+           input {
+           message 'Proceed?'
+           ok 'proceed'
+              
+          }
+        }
+ 
         }
         stage('Code Test') {
            steps {
