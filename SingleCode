@@ -7,8 +7,9 @@ pipeline {
             }
         }
         stage('prebuild') {
-        sh "echo 'analyse the code'"
+        steps {sh "echo 'analyse the code'"
         sh "echo 'seek stakeholder approval'"
         }
+      }
     }
 }
