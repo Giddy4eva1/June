@@ -16,7 +16,8 @@ pipeline {
         steps {
         sh "echo 'this is the prebuild stage of 00.43 28 June 2020'"
         }
-        }
+      }
+        
         stage('Code Build') {
         steps {
         sh "echo 'shell scripts to build project work'"}
@@ -25,6 +26,11 @@ pipeline {
         steps {
         sh "echo 'the full names must be written'"
         }
-        }
+      }
+      stage('Test') {
+      steps {
+      sh "echo 'testing stage also requires correct name as code test'"
+      }
+      }
     }
 }
