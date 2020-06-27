@@ -1,7 +1,7 @@
 pipeline {
     agent any                            
     environment {
-       OUPUT-PATH = './outputs/'
+       OUPUT_PATH = './outputs/'
         }
     stages {
         stage('Code Compile') {
