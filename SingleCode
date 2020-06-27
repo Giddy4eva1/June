@@ -5,10 +5,6 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-          }
-          
-         stage('Clone') {
-         checkout scm
-         } 
-       }
-     }
+        }
+    }
+}
