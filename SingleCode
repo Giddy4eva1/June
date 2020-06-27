@@ -12,5 +12,10 @@ pipeline {
         sh "echo 'it also means you probably want to work on it. innit?'"
         sh "echo 'I also have to add this line in order to successfully save'"}
         }
+        stage('Prebuild') {
+        steps {
+        sh "echo 'this is the prebuild stage of 00.43 28 June 2020'"
+        }
+        }
     }
 }
