@@ -24,7 +24,6 @@ pipeline {
            input {
            message 'Deploy?'
            ok 'Do it!'
-              
           }
         }
  
