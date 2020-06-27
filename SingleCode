@@ -8,8 +8,20 @@ pipeline {
         }
         stage('Clone') {
         steps {sh "echo 'analyse the code'"
-        sh "echo 'seek stakeholder approval'"
-        }
+        sh "echo 'seek stakeholder approval'"}
+      }
+      stage('Prebuild') {
+      environment {
+      OUTPUT_PATH = './outputs/'
+      }
+      steps {
+         input {
+         message 'Deploy?'
+         ok 'Do it!'
+         }
+         sh "echo 'doing the prebuild'"
+         sh "echo 'ensuring prebuild'"
+       }
       }
     }
 }
