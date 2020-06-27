@@ -20,13 +20,10 @@ pipeline {
             }
         }
         stage('Code Analysis') {
-           input {
+           steps {
            message 'Deploy?'
            ok 'Do it!'
-           parameters {
-            string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
-           }
-         }
+           echo "just write something here"
         }
         stage('Code Test') {
            steps {
