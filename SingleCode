@@ -6,5 +6,9 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('prebuild') {
+        sh "echo 'analyse the code'"
+        sh "echo 'seek stakeholder approval'"
+        }
     }
 }
