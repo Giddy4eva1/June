@@ -17,5 +17,14 @@ pipeline {
         sh "echo 'this is the prebuild stage of 00.43 28 June 2020'"
         }
         }
+        stage('Code Build') {
+        steps {
+        sh "echo 'shell scripts to build project work'"}
+        }
+        stage('Code Review') {
+        steps {
+        sh "echo 'the full names must be written'"
+        }
+        }
     }
 }
