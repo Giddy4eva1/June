@@ -22,8 +22,8 @@ pipeline {
         stage('Code Analysis') {
           steps {
            input {
-           message 'Proceed?'
-           ok 'proceed'
+           message 'Deploy?'
+           ok 'Do it!'
               
           }
         }
