@@ -5,13 +5,12 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-          }
-
-         stage('Clone') {
-         checkout scm
-         } 
-       }
-     }
         }
+        stage('prebuild') {
+        sh "echo 'analyse the code'"
+        steps {sh "echo 'analyse the code'"
+        sh "echo 'seek stakeholder approval'"
+        }
+      }
     }
 }
