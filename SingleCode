@@ -1,10 +1,20 @@
 pipeline {
     agent any
+    options {
+    retry(5)
+    }
+    environment {
+    prod = 'hanover'
+    }
     stages { 
-        stage('Example') {
+        stage('Clone') {
             steps {
                 echo 'Hello World'
             }
+        stage('prebuild') {
+        sh "echo 'shell scripts to buid project' "
+        sh "echo 'prepare them very well'"
+        }
         }
     }
 }
