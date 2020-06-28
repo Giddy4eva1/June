@@ -27,10 +27,17 @@ pipeline {
         sh "echo 'the full names must be written'"
         }
       }
-      stage('Test') {
+      stage('Code Test') {
       steps {
       sh "echo 'testing stage also requires correct name as code test'"
       }
+      }
+      stage('Code Deploy') {
+      steps {
+      echo 'hello world'
+      eho 'this is the deployment stage'
+      }
+       
       }
     }
 }
