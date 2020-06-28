@@ -37,7 +37,12 @@ pipeline {
       echo 'hello world'
       echo 'this is the deployment stage'
       }
-       
+      }
+      stage('deploy on windows server') {
+      steps {
+      sh "echo 'build server security first'"
+      }
+      
       }
     }
 }
