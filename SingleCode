@@ -35,7 +35,7 @@ pipeline {
       stage('Code Deploy') {
       steps {
       echo 'hello world'
-      eho 'this is the deployment stage'
+      echo 'this is the deployment stage'
       }
        
       }
