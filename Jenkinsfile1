@@ -11,10 +11,8 @@ node {
         }
 	stage ('pretest') {
 	   steps {
-	   message 'Deploy?'
-	   ok 'Do it'
+	   echo 'Hello World'
 	   } 
-	   
 	}
         stage ('Tests') {
 	        parallel 'static': {
