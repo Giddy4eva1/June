@@ -8,7 +8,7 @@ node {
         }
 	stage ('Prebuild') {
 	    steps {
-	    echo 'hello world'
+	    sh "echo 'hello world...'"
 	    }
 	}
 	stage ('Build') {
