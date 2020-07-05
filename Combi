@@ -27,7 +27,7 @@ node {
 	 sh "echo 'this should actually be done logically '"
 	}
 	stage ('Review') {
-	    parallel 'static' {
+	    parallel 'static' : {
 	    sh "echo 'this is just studying how to do parallel static fx'"
 	    },
 	    'unit' : {
