@@ -7,12 +7,16 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage ('Code Review') {
-	    sh "echo 'review all code and flow'"
-	    sh "echo 'pass your comments'"
-	}
-	stage ('Preparation') {
-	    sh "echo 'prepare the environment'"
+	stage ('Study') {
+	  parallel 'static' : {
+	  sh "echo 'stages are outlined  here'"
+	  },
+	  'unit stage' : {
+	  sh "echo 'check them all'"
+	  },
+	  'research' : {
+	  sh "echo 'research stage'"
+	  }
 	}
 	stage ('prebuild') {
 		sh "echo 'analyse the code'"
