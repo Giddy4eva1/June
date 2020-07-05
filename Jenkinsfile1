@@ -6,6 +6,9 @@ node {
         stage ('Clone') {
         	checkout scm
         }
+	options {
+	retry (2)
+	}
         stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
         }
