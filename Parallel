@@ -18,7 +18,7 @@ node {
 	sh "echo 'the following tests shall be carried out'"
 	},
 	'unit test' : (
-	   sh ""echo 'shell scripts to run unit tests here'
+	   sh "echo 'shell scripts to run unit tests here'"
 	),
 	'integration test' : {
 	   sh "echo 'shell scripts to run integration test'"   
