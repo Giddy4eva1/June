@@ -16,21 +16,7 @@ node {
 	  sh "echo 'there should be comma after each parallel  curly bracket...'"
 	  }
       }  
-      stage ('prebuild') {
-      parallel 'static' : {
-      sh "echo 'study the locations and punction very well'"
-      },
-      'unit test' : {
-      sh "echo 'examine all the commas....'"
-      'trial' : {
-      "echo 'you can observe that you can title the parallel stages sequentially'"
-      },
-      'deploymant test' : {
-      sh "echo 'see what you can learn about what to put as heading, eg deploy on windows'"
-      }
-    }
-      
-      }
+     }
       stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
