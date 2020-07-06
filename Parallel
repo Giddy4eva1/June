@@ -4,4 +4,21 @@ node {
     try {
         stage ('Clone') {
         	checkout scm
-        }
+        } 
+	   stage ('Pre-mortem') {
+	   parallel 'static' : {
+	   sh "echo 'let my sins be forgotten before you Lord'"
+	   },
+	   'unit test' : {
+	   sh "echo 'this is an attempt to try how to use parallel static'"
+	   },
+	   'integration' : {
+	   sh "echo 'you can put in all kinds of testa including system test etc..'"
+	   },
+	   'system test' : {
+	   sh "echo 'so parallel static is depploy different things at same time..'"
+	   },
+	   'smoke test' : {
+	   sh "echo 'all these will enable you deploy multiple pipelines'"
+	   }
+	}
