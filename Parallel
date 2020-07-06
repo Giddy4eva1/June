@@ -5,21 +5,10 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage ('prebuild') {
+	stage ('practice') {
 		sh "echo 'analyse the code'"
 		sh "echo 'seek stakeholder approval'"
 	}
-        stage ('Tests') {
-	        parallel 'static': {
-	            sh "echo 'shell scripts to run static tests...'"
-	        },
-	        'unit': {
-	            sh "echo 'shell scripts to run unit tests...'"
-	        },
-	        'integration': {
-	            sh "echo 'shell scripts to run integration tests...'"
-	        }
-        }
       	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
