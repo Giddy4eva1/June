@@ -15,16 +15,8 @@ node {
 	  'next parallel' : {
 	  sh "echo 'there should be comma after each parallel  curly bracket...'"
 	  }
-      }
-      stage ('continuation') {
-         parallel 'static' : {
-	 'intro' :{
-	 sh "echo 'you can use parallel under any  stage'"
-	 },
-}
-     }
-      
-      	stage ('Deploy') {
+      }  
+      stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
     } catch (err) {
