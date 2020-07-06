@@ -22,3 +22,4 @@ node {
 	   sh "echo 'all these will enable you deploy multiple pipelines'"
 	   }
 	}
+}
