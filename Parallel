@@ -5,19 +5,7 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage ('practice') {
-	  parallel 'static' : {
-	  sh "echo 'start parallel work here'"
-	  },
-	  'location or unit stage or build on windows' : {
-	  sh "echo 'remember the punctuation all over'"
-	  },
-	  'next parallel' : {
-	  sh "echo 'there should be comma after each parallel  curly bracket...'"
-	  }
-      }  
-     }
-      stage ('Deploy') {
+	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
     } catch (err) {
