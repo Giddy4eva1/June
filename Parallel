@@ -5,6 +5,15 @@ node {
         stage ('Clone') {
         	checkout scm
         }
+	stage ('build') {
+	parallel 'static' : {
+	sh "echo 'try doing the parallel here'"
+	},
+	'prebuild' : {
+	sh "echo 'this is another parallel to be build with others'"
+	}
+       }
+	
 	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
