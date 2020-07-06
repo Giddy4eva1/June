@@ -22,7 +22,7 @@ node {
       },
       'unit test' : {
       sh "echo 'examine all the commas....'"
-      'system test' : {
+      'trial' : {
       "echo 'you can observe that you can title the parallel stages sequentially'"
       },
       'deploymant test' : {
