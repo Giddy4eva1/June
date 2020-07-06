@@ -4,8 +4,8 @@ node {
     try {
         stage ('Clone') {
         	checkout scm
-        } 
-	   stage ('Pre-mortem') {
+        }
+	stage ('Pre-mortem') {
 	   parallel 'static' : {
 	   sh "echo 'let my sins be forgotten before you Lord'"
 	   },
@@ -22,4 +22,54 @@ node {
 	   sh "echo 'all these will enable you deploy multiple pipelines'"
 	   }
 	}
+	stage ('notes') {
+	 sh "echo 'this should actually be done logically '"
+	}
+	stage ('Review') {
+	    parallel 'static' : {
+	    sh "echo 'this is just studying how to do parallel static fx'"
+	    },
+	    'unit' : {
+	    sh "echo 'parallel static comes immediately after stage'"
+	    },
+	    'integration' : {
+	    sh "echo 'you can list as many parallels as possible'"
+	    },
+	    'another' : {
+	    sh "echo 'important  to know how to quotation marks work'"
+	    }
+	}
+	stage ('Study') {
+	  parallel 'static' : {
+	  sh "echo 'stages are outlined  here'"
+	  },
+	  'unit stage' : {
+	  sh "echo 'check them all'"
+	  },
+	  'research' : {
+	  sh "echo 'research stage'"
+	  }
+	}
+	stage ('prebuild') {
+		sh "echo 'analyse the code'"
+		sh "echo 'seek stakeholder approval'"
+	}
+        stage ('Tests') {
+	        parallel 'static': {
+	            sh "echo 'shell scripts to run static tests...'"
+	        },
+	        'unit': {
+	            sh "echo 'shell scripts to run unit tests...'"
+	        },
+	        'integration': {
+	            sh "echo 'shell scripts to run integration tests...'"
+	        }
+        }
+      	stage ('Deploy') {
+            sh "echo 'shell scripts to deploy to server...'"
+      	}
+    } catch (err) {
+        currentBuild.result = 'FAILED'
+        throw err
+    }
 }
