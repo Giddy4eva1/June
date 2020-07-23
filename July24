@@ -24,6 +24,9 @@ node {
 	   sh "echo 'shell scripts to run integration test'"   
 	}
 	}
+	stage ('Pre-Deploy') {
+            sh "echo 'shell scripts to deploy to server...'"
+      	}
 	stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
       	}
