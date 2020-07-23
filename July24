@@ -13,12 +13,7 @@ node {
 	sh "echo 'this is another parallel to be build with others'"
 	}
        }
-       
-	stage ('post-build') {
-	sh "echo 'try doing the parallel here'"
-	},
-	
-	stage ('test') {
+    	stage ('test') {
 	parallel 'static' : {
 	sh "echo 'the following tests shall be carried out'"
 	},
