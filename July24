@@ -15,9 +15,9 @@ node {
        }
        
 	stage ('post-build') {
-	parallel 'static' : {
 	sh "echo 'try doing the parallel here'"
 	},
+	
 	stage ('test') {
 	parallel 'static' : {
 	sh "echo 'the following tests shall be carried out'"
