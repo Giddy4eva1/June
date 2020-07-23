@@ -5,11 +5,6 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage('Compile') { 
-      steps {
-        echo 'trying'
-      }
-     }
 	stage ('build') {
 	parallel 'static' : {
 	sh "echo 'try doing the parallel here'"
