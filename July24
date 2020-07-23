@@ -5,7 +5,7 @@ node {
         stage ('Clone') {
         	checkout scm
         }
-	stage('Compile') { // Compile and do unit testing
+	stage('Compile') { 
       steps {
         echo 'trying'
       }
